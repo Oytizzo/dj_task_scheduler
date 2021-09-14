@@ -11,6 +11,13 @@
 
     <div class="container">
         <!-- Content here -->
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <div{% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>{{ message }}</div>
+            {% endfor %}
+        </ul>
+        {% endif %}
         <!-- <h1>Hello everyone! How are you doin?</h1> -->
         {% block content %}{% endblock %}
     </div>

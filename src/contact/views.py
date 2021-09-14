@@ -1,4 +1,5 @@
 from django.contrib import messages
+from django.contrib.messages.views import SuccessMessageMixin
 from django.core.mail import send_mail
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
@@ -13,10 +14,11 @@ def index(request):
     return HttpResponse("<h1>Hello, world</h1>")
 
 
-class ContactView(FormView):
+class ContactView(SuccessMessageMixin, FormView):
     template_name = 'contact/contact_form.html'
     form_class = ContactForm
     success_url = '/blog/'
+    success_message = "You've sent an email to contact. Thank you!"
 
     def form_valid(self, form):
         # This method is called when valid form data has been POSTed.
