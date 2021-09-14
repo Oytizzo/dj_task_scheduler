@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <section class="box-container">
+        <div class="form-container">
+            <h1 class="contact_h">Get In Touch</h1>
+            <br>
+            <form action="" method="post">
+                {% csrf_token %}
+                <div>
+                    {{ form.subject.errors }}
+                    {{ form.subject }}
+                </div>
+                <br>
+                <div>
+                    {{ form.subject.errors }}
+                    {{ form.message }}
+                </div>
+                <br>
+                <div>
+                    {{ form.subject.errors }}
+                    {{ form.sender }}
+                </div>
+                <br>
+                <div>
+                    {{ form.subject.errors }}
+                    <label for="{{ form.cc_myself.id_for_label }}">CC yourself ? </label>
+                    {{ form.cc_myself }}
+                </div>
+
+                <button class="contact_link" type="submit">Submit</button>
+                <br>
+            </form>
+        </div>
+    </section>
+
+
+<!--    <form method="post">{% csrf_token %}-->
+<!--        {{ form.as_p }}-->
+<!--        <input type="submit" value="Send message">-->
+<!--    </form>-->
+
+{% endblock content %}
