@@ -11,6 +11,8 @@ def add(x, y):
 
 @shared_task
 def send_mail_task():
-    send_mail('this is subject',
-              'hello world, this is message body',
+    send_mail('celery python this is subject',
+              'sally, hello world, this is message body',
+              '',
+              ['oytizzo@gmail.com'],
               fail_silently=False)
